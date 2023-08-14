@@ -416,6 +416,7 @@ controller:
     ##
     appProtocol: true
     annotations: {}
+       #service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
     labels: {}
     # clusterIP: ""
 
