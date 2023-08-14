@@ -19,3 +19,26 @@ resource "azurerm_kubernetes_cluster""automate" {
   }
     depends_on = [azurerm_resource_group.automate]
 }
+module "keyvault" {
+  source              = "../modules"
+  name                = var.keyvault_name
+  resource_group_name = azurerm_resource_group.automate.name
+  location            = var.location
+
+  access_policies = [
+    {
+      object_id               = "69c96ebb-245c-4c84-82db-0244f64bbaa8" // my-user-objectid # find it in the active directory
+      certificate_permissions = ["Get"]
+      key_permissions         = ["Get", "List"]
+      secret_permissions      = ["Get", "List", "Set"]
+      storage_permissions     = []
+    },
+    {
+      object_id               =  azurerm_kubernetes_cluster.automate.kubelet_identity[0].object_id // kubelet identity
+      certificate_permissions = ["Get"]
+      key_permissions         = ["Get", "List"]
+      secret_permissions      = ["Get", "List"]
+      storage_permissions     = []
+    }
+  ]
+}

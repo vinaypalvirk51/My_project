@@ -14,4 +14,8 @@ variable "location" {
     default = "eastus"
 }
 
+variable "keyvault_name" {
+ default = "junek8s23"
+}
+
 

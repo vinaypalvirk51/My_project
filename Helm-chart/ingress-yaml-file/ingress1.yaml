@@ -15,9 +15,9 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: argo-cd-argocd-server
+            name: my-nginx
             port:
-              number: 80
+              number: 8080
 
 
 
