@@ -27,7 +27,7 @@ module "keyvault" {
 
   access_policies = [
     {
-      object_id               = "bf0972a7-0702-4102-8644-e1fb0578bde0" // my-user-objectid # find it in the active directory
+      object_id               = "3c45eb7e-af4c-4524-add5-4e7f4a5c33ab" // my-user-objectid # find it in the active directory
       certificate_permissions = ["Get"]
       key_permissions         = ["Get", "List"]
       secret_permissions      = ["Get", "List", "Set"]
