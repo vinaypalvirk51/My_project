@@ -15,7 +15,7 @@ variable "location" {
 }
 
 variable "keyvault_name" {
- default = "junek8s23"
+ default = "vinaypal2023"
 }
 
 
